@@ -5,7 +5,10 @@ function getList(db = connection) {
 }
 
 function addItem(item, db = connection) {
-  return db('list').insert(item)
+  console.log(item)
+  return db('list')
+    .insert(item)
+    .then((res) => res[0])
 }
 
 module.exports = {

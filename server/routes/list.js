@@ -17,12 +17,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const item = req.body
-  console.log(item)
+  // console.log(item)
   db.addItem(item)
     .then(() => {
       res.json(item)
     })
-    .catch((error) => {
+    .catch(() => {
       res.status(500).json({ message: 'Unable to add item to db' })
     })
 })

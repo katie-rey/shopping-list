@@ -9,20 +9,20 @@ function ShoppingForm() {
   // const [price, setPrice] = useState('')
   const dispatch = useDispatch()
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log(item)
-    dispatch(addNewItem(item))
-    APIaddItem(item)
-    e.target.reset()
-  }
-
   function handleChange(e) {
     console.log(e.target.value)
     setItem({
       ...item,
       [e.target.name]: e.target.value,
     })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log(item)
+    dispatch(addNewItem(item))
+    // APIaddItem(item)
+    e.target.reset()
   }
 
   return (

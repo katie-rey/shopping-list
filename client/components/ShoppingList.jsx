@@ -12,6 +12,7 @@ function ShoppingList() {
   const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch()
   const listArray = useSelector((state) => state.items)
+  console.log(listArray)
 
   useEffect(() => {
     dispatch(listRequested())
@@ -25,6 +26,11 @@ function ShoppingList() {
     //     console.log(err)
     // })
   }, [])
+
+  function handleDelete(event, todo) {
+    event.preventDefault()
+    props.dispatch(deleteTodo(todo))
+  }
 
   return isLoading ? (
     // <Spinner />
@@ -43,6 +49,10 @@ function ShoppingList() {
                 {/* key={item} */}
                 {item.name} {item.price}
               </p>
+              <button
+                className="destroy"
+                onClick={(e) => handleDelete(e, item)}
+              ></button>
             </>
           )
         })}
