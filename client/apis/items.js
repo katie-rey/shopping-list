@@ -16,8 +16,13 @@ export function getItems() {
 }
 
 export function APIaddItem(item) {
+  console.log(item)
   return request
-    .post(rootUrl + `/`)
+    .post(rootUrl)
     .send(item)
-    .then(() => {})
+    .then(() => {
+      APIgetShoppingList().then(() => {
+        return res.body
+      })
+    })
 }

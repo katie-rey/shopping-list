@@ -4,9 +4,11 @@ import ShoppingList from './ShoppingList'
 
 function ShoppingForm() {
   const [item, setItem] = useState('')
+  // const [price, setPrice] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(item)
     APIaddItem(item)
       .then(() => {
         setItem('')
@@ -14,10 +16,20 @@ function ShoppingForm() {
       .catch((err) => {
         console.error(err)
       })
+    setItem('')
+    console.log(item)
   }
 
   const handleChange = (e) => {
-    setItem(e.target.value)
+    // const name = e.target.name
+    // console.log(name)
+    // const price = e.target.value
+    // const price = e.target.value
+    console.log(e.target.value)
+    setItem({
+      ...item,
+      [e.target.name]: e.target.value,
+    })
   }
 
   return (
@@ -28,10 +40,18 @@ function ShoppingForm() {
 
         <div className="input-group">
           <input
+            name="name"
             onChange={handleChange}
             type="text"
-            placeholder="Write a review"
-            value={item}
+            placeholder="Add item"
+            // value={item}
+          />
+          <input
+            name="price"
+            onChange={handleChange}
+            type="integer"
+            placeholder="Price"
+            // value={item}
           />
           <button type="submit">Submit</button>
         </div>

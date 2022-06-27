@@ -28,12 +28,16 @@ function ShoppingList() {
       <div className="list-container">
         {console.log(list)}
         {list?.map((item) => {
-          console.log(item.name)
-       
-            {' '}
-            <p>{item.name}</p>
-            <p>{item.price}</p>
-
+          return (
+            <>
+              {' '}
+              <p>
+                {' '}
+                {/* key={item} */}
+                {item.name} {item.price}
+              </p>
+            </>
+          )
         })}
       </div>
     </>
