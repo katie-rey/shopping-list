@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 // import Spinner from './Spinner'
 import { APIgetShoppingList } from '../apis/items'
+import ListContext from '../context/ListContext'
 
 function ShoppingList() {
+  // const { list } = useContext(ListContext)
   const [list, setList] = useState({})
   console.log(list)
   const [isLoading, setIsLoading] = useState(true)

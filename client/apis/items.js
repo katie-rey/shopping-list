@@ -20,9 +20,5 @@ export function APIaddItem(item) {
   return request
     .post(rootUrl)
     .send(item)
-    .then(() => {
-      APIgetShoppingList().then(() => {
-        return res.body
-      })
-    })
+    .then(() => {})
 }
