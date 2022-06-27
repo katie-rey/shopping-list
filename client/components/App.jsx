@@ -1,27 +1,42 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import Header from './Header'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ShoppingForm from './ShoppingForm'
+import ShoppingList from './ShoppingList'
 
-import { fetchFruits } from '../actions'
+// import { fetchFruits } from '../actions'
 
-function App () {
-  const fruits = useSelector(state => state.fruits)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [])
+function App() {
+  //   const fruits = useSelector((state) => state.fruits)
+  //   const dispatch = useDispatch()
+  //   useEffect(() => {
+  //     dispatch(fetchFruits())
+  //   }, [])
 
   return (
     <>
-      <div className='app'>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div>
+      <Header />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <ShoppingForm />
+              <ShoppingList />
+            </>
+          }
+        ></Route>
+        {/* <Route path="/about" element={<AboutPage />} />
+            <Route path="/post:id/:name" element={<Post />} /> */}
+      </Routes>
     </>
   )
 }
 
 export default App
+
+// <div className="app">
+// <h1>Fullstack Boilerplate - with Fruits!</h1>
+
+// </div>
