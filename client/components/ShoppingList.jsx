@@ -1,24 +1,29 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { connect, useDispatch, useSelector } from 'react-redux'
 // import Spinner from './Spinner'
 import { APIgetShoppingList } from '../apis/items'
 import ListContext from '../context/ListContext'
+import { listRequested } from '../actions/index'
 
 function ShoppingList() {
   // const { list } = useContext(ListContext)
   const [list, setList] = useState({})
   console.log(list)
   const [isLoading, setIsLoading] = useState(true)
+  const dispatch = useDispatch()
+  const listArray = useSelector((state) => state.items)
 
   useEffect(() => {
-    APIgetShoppingList()
-      .then((list) => {
-        console.log('Form' + list)
-        setList(list)
-        setIsLoading(false)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    dispatch(listRequested())
+    // APIgetShoppingList()
+    // .then(() => {
+    //     console.log('Form' + list)
+    //     setList(list)
+    setIsLoading(false)
+    //  })
+    //   .catch((err) => {
+    //     console.log(err)
+    // })
   }, [])
 
   return isLoading ? (
@@ -29,7 +34,7 @@ function ShoppingList() {
       <h3>My Items</h3>
       <div className="list-container">
         {console.log(list)}
-        {list?.map((item) => {
+        {listArray?.map((item) => {
           return (
             <>
               {' '}

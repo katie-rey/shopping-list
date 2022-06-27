@@ -2,31 +2,27 @@ import React, { useContext, useEffect, useState } from 'react'
 import { APIaddItem, APIgetShoppingList } from '../apis/items'
 import ShoppingList from './ShoppingList'
 import { useDispatch } from 'react-redux'
+import { addNewItem } from '../actions/index'
 
 function ShoppingForm() {
   const [item, setItem] = useState('')
   // const [price, setPrice] = useState('')
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault()
     console.log(item)
+    dispatch(addNewItem(item))
     APIaddItem(item)
     e.target.reset()
   }
 
-  const handleChange = (e) => {
-    // const name = e.target.name
-    // console.log(name)
-    // const price = e.target.value
-    // const price = e.target.value
+  function handleChange(e) {
     console.log(e.target.value)
     setItem({
       ...item,
       [e.target.name]: e.target.value,
     })
-    // setItem(
-    //   e.target.name: e.target.value)
   }
 
   return (
