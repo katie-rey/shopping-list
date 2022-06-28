@@ -1,15 +1,13 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('list')
+  return knex('dailyList')
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex('list').insert([
+      return knex('dailyList').insert([
         { id: 1, name: 'banana', price: 5.99 },
         { id: 2, name: 'apple', price: 5.99 },
         { id: 3, name: 'feijoa', price: 5.99 },
-        { id: 4, name: 'master', price: 5.99 },
-        { id: 5, name: 'list', price: 5.99 },
       ])
     })
 }

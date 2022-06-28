@@ -3,12 +3,13 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 // import Spinner from './Spinner'
 import { APIgetShoppingList } from '../apis/items'
 import ListContext from '../context/ListContext'
-import { listRequested } from '../actions/index'
+import { listRequested, deleteItem, addToList } from '../actions/index'
+import { FaTimes, FaEdit, FaArrowRight } from 'react-icons/fa'
 
 function ShoppingList() {
   // const { list } = useContext(ListContext)
   const [list, setList] = useState({})
-  console.log(list)
+  // console.log(list)
   const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch()
   const listArray = useSelector((state) => state.items)
@@ -25,11 +26,17 @@ function ShoppingList() {
     //   .catch((err) => {
     //     console.log(err)
     // })
-  }, [])
+  }, list)
 
-  function handleDelete(event, todo) {
+  function handleDelete(event, item) {
     event.preventDefault()
-    props.dispatch(deleteTodo(todo))
+    dispatch(deleteItem(item))
+    dispatch(listRequested())
+  }
+
+  function handleAdd(e, item) {
+    e.preventDefault
+    dispatch(addToList(item))
   }
 
   return isLoading ? (
@@ -39,20 +46,28 @@ function ShoppingList() {
     <>
       <h3>My Items</h3>
       <div className="list-container">
-        {console.log(list)}
+        {/* {console.log(list)} */}
         {listArray?.map((item) => {
           return (
             <>
               {' '}
-              <p>
+              <p key={item}>
                 {' '}
-                {/* key={item} */}
                 {item.name} {item.price}
               </p>
-              <button
+              <button onClick={(e) => handleDelete(e, item)} className="close">
+                <FaTimes color="black" />
+              </button>
+              <button onClick={(e) => handleAdd(e, item)} className="close">
+                <FaArrowRight color="black" />
+              </button>
+              {/* <button onClick={() => editFeedback(item)} className="edit">
+        <FaEdit color="purple" />
+      </button> */}
+              {/* <button
                 className="destroy"
                 onClick={(e) => handleDelete(e, item)}
-              ></button>
+              ></button> */}
             </>
           )
         })}

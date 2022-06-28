@@ -1,13 +1,13 @@
-import { DAILYLIST_RECEIVED, LIST_RECEIVED } from '../actions/index'
+import { DAILYLIST_RECEIVED } from '../actions/index'
 
 const INITIAL_STATE = []
 
-const listReducer = (state = INITIAL_STATE, action) => {
+const dailyListReducer = (state = INITIAL_STATE, action) => {
   switch (
     action.type // @@INIT, TODOS_RECEIVED   ?
   ) {
-    case LIST_RECEIVED:
-      return action.items
+    case DAILYLIST_RECEIVED:
+      return action.list
 
     // case ADD_TODO:
     //   console.log(action)
@@ -18,4 +18,4 @@ const listReducer = (state = INITIAL_STATE, action) => {
   }
 }
 
-export default listReducer
+export default dailyListReducer

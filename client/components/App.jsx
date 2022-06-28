@@ -3,6 +3,7 @@ import Header from './Header'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ShoppingForm from './ShoppingForm'
 import ShoppingList from './ShoppingList'
+import DailyShoppingList from './DailyShoppingList'
 
 // import { fetchFruits } from '../actions'
 
@@ -24,9 +25,11 @@ function App() {
             <>
               <ShoppingForm />
               <ShoppingList />
+              <DailyShoppingList />
             </>
           }
-        ></Route>
+        />
+        <Route exact path="/list" element={<DailyShoppingList />} />
         {/* <Route path="/about" element={<AboutPage />} />
             <Route path="/post:id/:name" element={<Post />} /> */}
       </Routes>

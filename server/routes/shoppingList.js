@@ -2,10 +2,11 @@ const express = require('express')
 const db = require('../db/list')
 const router = express.Router()
 
-// GET shopping list
+// get daily shopping list
 router.get('/', (req, res) => {
-  db.getList()
+  db.getDailyList()
     .then((results) => {
+      console.log(results)
       res.json(results)
       return null
     })
@@ -15,10 +16,11 @@ router.get('/', (req, res) => {
     })
 })
 
+// add to shopping list
 router.post('/', (req, res) => {
   const item = req.body
-  console.log(item + 'route')
-  db.addItem(item)
+  // console.log(item)
+  db.addDailyItem(item)
     .then(() => {
       res.json(item)
     })
@@ -29,8 +31,8 @@ router.post('/', (req, res) => {
 
 router.delete('/', (req, res) => {
   const item = req.body
-
-  db.deleteItem(item)
+  console.log(item)
+  db.deleteDailyItem(item)
     .then(() => {
       res.json(item)
     })
