@@ -25,7 +25,7 @@ function App() {
             <>
               <ShoppingForm />
               <ShoppingList />
-              <DailyShoppingList />
+              {/* <DailyShoppingList /> */}
             </>
           }
         />

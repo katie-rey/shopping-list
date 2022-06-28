@@ -24,19 +24,29 @@ function DailyShoppingList() {
 
   return (
     <>
-      <h3>My Items</h3>
+      <h2>Today's shopping list</h2>
+
       <div className="list-container">
         {dailyListArray?.map((item) => {
           return (
             <>
-              {' '}
-              <p key={item}>
-                {' '}
-                {item.name} {item.price}
-              </p>
-              <button onClick={(e) => handleDelete(e, item)} className="close">
-                <FaTimes color="black" />
-              </button>
+              <div class="card">
+                <header class="card-header">
+                  {' '}
+                  <p class="card-header-title">{item.name}</p>
+                  {/* <div class="list-item" key={item}>
+                {item.name}
+                {item.price}
+              </div> */}
+                  <button
+                    class="button is-dark"
+                    onClick={(e) => handleDelete(e, item)}
+                    className="close"
+                  >
+                    <FaTimes color="black" />
+                  </button>
+                </header>
+              </div>
             </>
           )
         })}
