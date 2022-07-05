@@ -10,8 +10,6 @@ function DailyShoppingList() {
   const dailyListArray = useSelector((state) => state.list)
   const dispatch = useDispatch()
 
-  console.log(dailyListArray)
-
   useEffect(() => {
     dispatch(dailyListRequested())
   }, [])
@@ -24,7 +22,6 @@ function DailyShoppingList() {
 
   let total = 0
   dailyListArray.map((item) => {
-    console.log(item.price)
     return (total += item.price)
   })
 

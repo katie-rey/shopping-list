@@ -15,7 +15,6 @@ function MasterTile() {
   const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch()
   const listArray = useSelector((state) => state.items)
-  console.log(listArray)
 
   useEffect(() => {
     dispatch(listRequested())

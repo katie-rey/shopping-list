@@ -7,11 +7,23 @@ import { addNewItem } from '../actions/index'
 function ShoppingForm() {
   const [item, setItem] = useState('')
   const [btnDisabled, setBtnDisabled] = useState(true)
+  const [message, setMessage] = useState('')
   // const [price, setPrice] = useState('')
   const dispatch = useDispatch()
 
   function handleChange(e) {
     console.log(e.target.value)
+    if (item === '') {
+      setBtnDisabled(true)
+      setMessage(null)
+    } else if (item !== '' && item.length <= 10) {
+      setMessage('Text must be at least 10 characters')
+      setBtnDisabled(true)
+    } else {
+      setMessage(null)
+      setBtnDisabled(false)
+    }
+
     setItem({
       ...item,
       [e.target.name]: e.target.value,
@@ -61,6 +73,7 @@ function ShoppingForm() {
               >
                 Add
               </button>
+              {message && <div className="message">{message}</div>}
             </div>
           </div>
         </form>
