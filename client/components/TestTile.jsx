@@ -6,8 +6,9 @@ import ListContext from '../context/ListContext'
 import { listRequested, deleteItem, addToList } from '../actions/index'
 import { FaTimes, FaEdit, FaArrowRight } from 'react-icons/fa'
 import DailyShoppingList from './DailyShoppingList'
+import DailyTextTile from './DailyTextTile'
 
-function ShoppingList() {
+function TestTile() {
   // const { list } = useContext(ListContext)
   const [list, setList] = useState({})
   // console.log(list)
@@ -44,37 +45,18 @@ function ShoppingList() {
     // <Spinner />
     <p>is loading</p>
   ) : (
-    <section class="section">
-      <div className="columns list">
-        <div className="column is-flex is-justify-content-space-between "></div>
-        <div className="column is-justify-content-space-between has-background-white is-one-quarter">
-          <h3 className="list-header has-text-dark">My Master List</h3>
-          {/* {console.log(list)} */}
+    <div class="tile is-ancestor">
+      <div class="tile is-parent"></div>
+      <div class="tile is-parent is-4">
+        <article class="tile is-child notification is-info">
+          <p class="title">My Master List</p>
           {listArray?.map((item) => {
             return (
               <>
-                {' '}
-                {/* <div class="card">
-                  {' '}
-                  <header class="card-header">
-                     <p class="card-header-title">{item.name}</p> */}
                 <div
                   className="list-wrapper is-flex is-flex-direction-row 
                 is-justify-content-space-between is-align-content-space-between mgt-medium"
                 >
-                  {/* <button
-                    onClick={(e) => handleDelete(e, item)}
-                    className="close"
-                  >
-                    <FaTimes color="black" />
-                  </button>
-                  <button onClick={(e) => handleAdd(e, item)} className="close">
-                    <FaArrowRight color="black" />
-                  </button> */}
-                  {/* //{' '}
-                  </header>
-                  //{' '}
-                </div> */}
                   <div className="column border is-flex is-justify-content-space-between">
                     <div className="col has-text-dark">
                       <span key={item.id}>{item.name}</span>
@@ -104,17 +86,21 @@ function ShoppingList() {
               </>
             )
           })}
-        </div>
-
-        <div class="column middle"></div>
-
-        <DailyShoppingList />
-
-        <div className="column"></div>
+        </article>
       </div>
-      <div className="column"></div>
-    </section>
+
+      <div class="tile is-parent is-4">
+        <article class="tile is-child notification is-primary">
+          <div class="content">
+            <p class="title">Today's Shop</p>
+
+            <DailyTextTile />
+          </div>
+        </article>
+      </div>
+      <div class="tile is-parent"></div>
+    </div>
   )
 }
 
-export default ShoppingList
+export default TestTile

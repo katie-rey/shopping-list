@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ShoppingForm from './ShoppingForm'
 import ShoppingList from './ShoppingList'
 import DailyShoppingList from './DailyShoppingList'
+import Footer from './Footer'
+import TestTile from './TestTile'
 
 // import { fetchFruits } from '../actions'
 
@@ -24,15 +26,16 @@ function App() {
           element={
             <>
               <ShoppingForm />
-              <ShoppingList />
-              {/* <DailyShoppingList /> */}
+              {/* <ShoppingList /> */}
+              <TestTile />
             </>
           }
         />
-        <Route exact path="/list" element={<DailyShoppingList />} />
-        {/* <Route path="/about" element={<AboutPage />} />
-            <Route path="/post:id/:name" element={<Post />} /> */}
+
+        <Route exact path="/list" element={<TestTile />} />
       </Routes>
+
+      <Footer />
     </>
   )
 }

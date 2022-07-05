@@ -27,31 +27,40 @@ function ShoppingForm() {
 
   return (
     <>
-      <section class="hero is-small is-primary">
+      <div className="colums is-flex is-flex-direction-row mb-6">
+        <div className="column"></div>
         <form onSubmit={handleSubmit}>
-          <h2>Add items to your list here...</h2>
-
-          <div className="container is-flex-direction-row">
-            <input
-              class="input is-normal"
-              name="name"
-              onChange={(e) => handleChange(e)}
-              type="text"
-              placeholder="Add item"
-              // value={item}
-            />
-            <input
-              class="input"
-              name="price"
-              onChange={handleChange}
-              type="integer"
-              placeholder="Price"
-              // value={item}
-            />
-            <button type="submit">Submit</button>
+          <div class="field has-addons">
+            <div class="control">
+              <input
+                class="input is-normal"
+                name="name"
+                onChange={(e) => handleChange(e)}
+                type="text"
+                placeholder="Add item"
+              ></input>
+            </div>
+            <div class="control">
+              <input
+                class="input"
+                name="price"
+                onChange={handleChange}
+                type="integer"
+                placeholder="Price"
+              ></input>
+            </div>
+            <div class="control">
+              {/* <a class="button is-info" type="submit">
+                Add
+              </a> */}
+              <button className="button is-info" type="submit">
+                Add
+              </button>
+            </div>
           </div>
         </form>
-      </section>
+        <div className="column"></div>
+      </div>
     </>
   )
 }

@@ -5,9 +5,8 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex('dailyList').insert([
-        { id: 1, name: 'banana', price: 5.99 },
-        { id: 2, name: 'apple', price: 5.99 },
-        { id: 3, name: 'feijoa', price: 5.99 },
+        { id: 1, name: 'Apples', price: 2 },
+        { id: 3, name: 'Bananas', price: 2 },
       ])
     })
 }

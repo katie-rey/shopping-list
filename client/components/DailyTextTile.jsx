@@ -23,12 +23,7 @@ function DailyShoppingList() {
   }
 
   return (
-    <div className="column is-justify-content-space-between has-background-white is-one-quarter">
-      <h3 className="list-header mgb-medium has-text-dark">
-        Todays Shopping List
-      </h3>
-
-      {/* {console.log(list)} */}
+    <>
       {dailyListArray?.map((item) => {
         return (
           <>
@@ -79,33 +74,8 @@ function DailyShoppingList() {
           </>
         )
       })}
-    </div>
+    </>
   )
 }
 
 export default DailyShoppingList
-
-// isLoading ? (
-//   // <Spinner />
-//   <p>is loading</p>
-// ) :
-
-// <>
-//   <h2>Today's shopping list</h2>
-
-//   {dailyListArray?.map((item) => {
-//     ;<div className="list-container">
-//       <div class="list-item" key={item}>
-//         {item.name}
-//         {item.price}
-//       </div>
-//       <button
-//         class="button is-dark"
-//         onClick={(e) => handleDelete(e, item)}
-//         className="close"
-//       >
-//         <FaTimes color="black" />
-//       </button>
-//     </div>
-//   })}
-// </>

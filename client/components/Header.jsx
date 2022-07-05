@@ -5,9 +5,9 @@ function Header() {
   return (
     <>
       <header>
-        <div className="container">
-          <Link className="container" to="/">
-            Shopping List
+        <div className=" hero is-small has-text-white is-flex is-justify-content-center is-align-items-center">
+          <Link className=" hero-body" to="/">
+            <h1 className="title">My Shopping List</h1>
           </Link>
         </div>
       </header>
