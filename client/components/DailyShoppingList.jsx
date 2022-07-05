@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { dailyListRequested, deleteDailyItem } from '../actions/index'
-import { FaTimes, FaEdit, FaArrowRight } from 'react-icons/fa'
+import { FaTimes, FaEdit, FaArrowRight, FaCheck } from 'react-icons/fa'
 
 // import Spinner from './Spinner'
 

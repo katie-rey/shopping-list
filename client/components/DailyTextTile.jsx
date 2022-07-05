@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { dailyListRequested, deleteDailyItem } from '../actions/index'
-import { FaTimes, FaEdit, FaArrowRight } from 'react-icons/fa'
+import { FaTimes, FaEdit, FaArrowRight, FaCheck } from 'react-icons/fa'
 
 // import Spinner from './Spinner'
 
@@ -21,6 +21,12 @@ function DailyShoppingList() {
     dispatch(deleteDailyItem(item))
     dispatch(dailyListRequested())
   }
+
+  let total = 0
+  dailyListArray.map((item) => {
+    console.log(item.price)
+    return (total += item.price)
+  })
 
   return (
     <>
@@ -65,7 +71,7 @@ function DailyShoppingList() {
                   onClick={(e) => handleDelete(e, item)}
                   className="close"
                 >
-                  <FaTimes color="black" />
+                  <FaCheck color="black" />
                 </button>
 
                 {''}
@@ -74,6 +80,20 @@ function DailyShoppingList() {
           </>
         )
       })}
+      <div
+        className="list-wrapper is-flex is-flex-direction-row 
+              is-justify-content-space-between is-align-content-space-between"
+      >
+        <div className="column border is-flex is-justify-content-space-between">
+          <div className="col has-text-weight-bold is-underlined has-text-black">
+            <span>Total Shop: </span>
+          </div>
+          <div className="col has-text-weight-bold is-underlined has-text-black">
+            <span key={total}>${total}</span>
+          </div>
+        </div>
+        <div className="column border is-flex is-justify-content-space-between"></div>
+      </div>
     </>
   )
 }

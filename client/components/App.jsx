@@ -5,7 +5,7 @@ import ShoppingForm from './ShoppingForm'
 import ShoppingList from './ShoppingList'
 import DailyShoppingList from './DailyShoppingList'
 import Footer from './Footer'
-import TestTile from './TestTile'
+import MasterTile from './MasterTile'
 
 // import { fetchFruits } from '../actions'
 
@@ -27,12 +27,12 @@ function App() {
             <>
               <ShoppingForm />
               {/* <ShoppingList /> */}
-              <TestTile />
+              <MasterTile />
             </>
           }
         />
 
-        <Route exact path="/list" element={<TestTile />} />
+        <Route exact path="/list" element={<MasterTile />} />
       </Routes>
 
       <Footer />

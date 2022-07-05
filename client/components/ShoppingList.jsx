@@ -4,7 +4,7 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import { APIgetShoppingList } from '../apis/items'
 import ListContext from '../context/ListContext'
 import { listRequested, deleteItem, addToList } from '../actions/index'
-import { FaTimes, FaEdit, FaArrowRight } from 'react-icons/fa'
+import { FaTimes, FaEdit, FaArrowRight, FaPlus } from 'react-icons/fa'
 import DailyShoppingList from './DailyShoppingList'
 
 function ShoppingList() {
@@ -90,6 +90,7 @@ function ShoppingList() {
                       onClick={(e) => handleAdd(e, item)}
                       className="close"
                     >
+                      Add
                       <FaArrowRight color="black" />
                     </button>
                     <button

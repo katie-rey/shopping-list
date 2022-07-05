@@ -6,6 +6,7 @@ import { addNewItem } from '../actions/index'
 
 function ShoppingForm() {
   const [item, setItem] = useState('')
+  const [btnDisabled, setBtnDisabled] = useState(true)
   // const [price, setPrice] = useState('')
   const dispatch = useDispatch()
 
@@ -33,7 +34,7 @@ function ShoppingForm() {
           <div class="field has-addons">
             <div class="control">
               <input
-                class="input is-normal"
+                className="input is-normal"
                 name="name"
                 onChange={(e) => handleChange(e)}
                 type="text"
@@ -42,7 +43,7 @@ function ShoppingForm() {
             </div>
             <div class="control">
               <input
-                class="input"
+                className="input"
                 name="price"
                 onChange={handleChange}
                 type="integer"
@@ -53,7 +54,11 @@ function ShoppingForm() {
               {/* <a class="button is-info" type="submit">
                 Add
               </a> */}
-              <button className="button is-info" type="submit">
+              <button
+                className="button is-primary"
+                type="submit"
+                isDisabled={btnDisabled}
+              >
                 Add
               </button>
             </div>

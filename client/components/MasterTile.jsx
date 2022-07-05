@@ -4,11 +4,11 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import { APIgetShoppingList } from '../apis/items'
 import ListContext from '../context/ListContext'
 import { listRequested, deleteItem, addToList } from '../actions/index'
-import { FaTimes, FaEdit, FaArrowRight } from 'react-icons/fa'
+import { FaTimes, FaEdit, FaArrowRight, FaPlus } from 'react-icons/fa'
 import DailyShoppingList from './DailyShoppingList'
 import DailyTextTile from './DailyTextTile'
 
-function TestTile() {
+function MasterTile() {
   // const { list } = useContext(ListContext)
   const [list, setList] = useState({})
   // console.log(list)
@@ -48,7 +48,7 @@ function TestTile() {
     <div class="tile is-ancestor">
       <div class="tile is-parent"></div>
       <div class="tile is-parent is-4">
-        <article class="tile is-child notification is-info">
+        <article class="tile is-child notification is-primary">
           <p class="title">My Master List</p>
           {listArray?.map((item) => {
             return (
@@ -72,7 +72,7 @@ function TestTile() {
                       onClick={(e) => handleAdd(e, item)}
                       className="close"
                     >
-                      <FaArrowRight color="black" />
+                      <FaPlus color="black" />
                     </button>
                     <button
                       onClick={(e) => handleDelete(e, item)}
@@ -103,4 +103,4 @@ function TestTile() {
   )
 }
 
-export default TestTile
+export default MasterTile
