@@ -5,21 +5,18 @@ function getList(db = connection) {
 }
 
 function addItem(item, db = connection) {
-  console.log(item)
   return db('list')
     .insert(item)
     .then((res) => res[0])
 }
 
 function deleteItem(item, db = connection) {
-  console.log(item + 'db')
   return db('list').where('list.id', item.id).delete()
 }
 
 // DAILY SHOPPING LIST
 
 function addDailyItem(item, db = connection) {
-  console.log(item)
   return db('dailyList')
     .insert(item)
     .then((res) => res[0])
@@ -31,7 +28,6 @@ function getDailyList(db = connection) {
 }
 
 function deleteDailyItem(item, db = connection) {
-  console.log(item)
   return db('dailyList').where('dailyList.id', item.id).delete()
 }
 module.exports = {

@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const item = req.body
-  console.log(item + 'route')
+
   db.addItem(item)
     .then(() => {
       res.json(item)

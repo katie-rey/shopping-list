@@ -7,15 +7,7 @@ import DailyShoppingList from './DailyShoppingList'
 import Footer from './Footer'
 import MasterTile from './MasterTile'
 
-// import { fetchFruits } from '../actions'
-
 function App() {
-  //   const fruits = useSelector((state) => state.fruits)
-  //   const dispatch = useDispatch()
-  //   useEffect(() => {
-  //     dispatch(fetchFruits())
-  //   }, [])
-
   return (
     <>
       <Header />
@@ -26,7 +18,7 @@ function App() {
           element={
             <>
               <ShoppingForm />
-              {/* <ShoppingList /> */}
+
               <MasterTile />
             </>
           }
@@ -41,8 +33,3 @@ function App() {
 }
 
 export default App
-
-// <div className="app">
-// <h1>Fullstack Boilerplate - with Fruits!</h1>
-
-// </div>

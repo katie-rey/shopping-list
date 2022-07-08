@@ -9,10 +9,6 @@ const listReducer = (state = INITIAL_STATE, action) => {
     case LIST_RECEIVED:
       return action.items
 
-    // case ADD_TODO:
-    //   console.log(action)
-    //   return [...state, action.todos]
-
     default:
       return state
   }

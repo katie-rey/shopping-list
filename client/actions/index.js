@@ -9,23 +9,6 @@ import {
 
 export const LIST_RECEIVED = 'LIST_RECEIVED'
 export const DAILYLIST_RECEIVED = 'DAILYLIST_RECEIVED'
-// export const ADD_TODO = 'ADD_TODO'
-
-// export function setFruits(fruits) {
-//   return {
-//     type: SET_FRUITS,
-//     fruits,
-//   }
-// }
-
-// export function fetchFruits() {
-//   return (dispatch) => {
-//     return getFruits().then((fruits) => {
-//       dispatch(setFruits(fruits))
-//       return null
-//     })
-//   }
-// }
 
 // get master list
 export function listRequested() {

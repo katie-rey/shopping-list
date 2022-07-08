@@ -12,7 +12,6 @@ function ShoppingForm() {
   const dispatch = useDispatch()
 
   function handleChange(e) {
-    console.log(e.target.value)
     if (item === '') {
       setBtnDisabled(true)
       setMessage(null)
@@ -43,8 +42,8 @@ function ShoppingForm() {
       <div className="colums is-flex is-flex-direction-row mb-6">
         <div className="column"></div>
         <form onSubmit={handleSubmit}>
-          <div class="field has-addons">
-            <div class="control">
+          <div className="field has-addons">
+            <div className="control">
               <input
                 className="input is-normal"
                 name="name"
@@ -53,7 +52,7 @@ function ShoppingForm() {
                 placeholder="Add item"
               ></input>
             </div>
-            <div class="control">
+            <div className="control">
               <input
                 className="input"
                 name="price"
@@ -62,10 +61,7 @@ function ShoppingForm() {
                 placeholder="Price"
               ></input>
             </div>
-            <div class="control">
-              {/* <a class="button is-info" type="submit">
-                Add
-              </a> */}
+            <div className="control">
               <button
                 className="button is-primary"
                 type="submit"

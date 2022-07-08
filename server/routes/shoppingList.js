@@ -6,7 +6,6 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getDailyList()
     .then((results) => {
-      console.log(results)
       res.json(results)
       return null
     })
@@ -19,7 +18,7 @@ router.get('/', (req, res) => {
 // add to shopping list
 router.post('/', (req, res) => {
   const item = req.body
-  // console.log(item)
+
   db.addDailyItem(item)
     .then(() => {
       res.json(item)
@@ -31,7 +30,7 @@ router.post('/', (req, res) => {
 
 router.delete('/', (req, res) => {
   const item = req.body
-  console.log(item)
+
   db.deleteDailyItem(item)
     .then(() => {
       res.json(item)

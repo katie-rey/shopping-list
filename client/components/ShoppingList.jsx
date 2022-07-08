@@ -8,9 +8,9 @@ import { FaTimes, FaEdit, FaArrowRight, FaPlus } from 'react-icons/fa'
 import DailyShoppingList from './DailyShoppingList'
 
 function ShoppingList() {
-  // const { list } = useContext(ListContext)
+
   const [list, setList] = useState({})
-  // console.log(list)
+
   const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch()
   const listArray = useSelector((state) => state.items)
@@ -18,15 +18,9 @@ function ShoppingList() {
 
   useEffect(() => {
     dispatch(listRequested())
-    // APIgetShoppingList()
-    // .then(() => {
-    //     console.log('Form' + list)
-    //     setList(list)
+ 
     setIsLoading(false)
-    //  })
-    //   .catch((err) => {
-    //     console.log(err)
-    // })
+
   }, list)
 
   function handleDelete(event, item) {
@@ -54,27 +48,12 @@ function ShoppingList() {
             return (
               <>
                 {' '}
-                {/* <div class="card">
-                  {' '}
-                  <header class="card-header">
-                     <p class="card-header-title">{item.name}</p> */}
+             
                 <div
                   className="list-wrapper is-flex is-flex-direction-row 
                 is-justify-content-space-between is-align-content-space-between mgt-medium"
                 >
-                  {/* <button
-                    onClick={(e) => handleDelete(e, item)}
-                    className="close"
-                  >
-                    <FaTimes color="black" />
-                  </button>
-                  <button onClick={(e) => handleAdd(e, item)} className="close">
-                    <FaArrowRight color="black" />
-                  </button> */}
-                  {/* //{' '}
-                  </header>
-                  //{' '}
-                </div> */}
+     
                   <div className="column border is-flex is-justify-content-space-between">
                     <div className="col has-text-dark">
                       <span key={item.id}>{item.name}</span>
@@ -82,7 +61,7 @@ function ShoppingList() {
                     <div className="col has-text-dark">
                       <span key={item.id}>${item.price}</span>
                     </div>
-                    {/* <span></span> */}
+                
                   </div>
                   <div className="column border is-flex is-justify-content-space-around">
                     <span></span>

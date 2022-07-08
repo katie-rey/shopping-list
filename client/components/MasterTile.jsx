@@ -63,7 +63,7 @@ function MasterTile() {
                     <div className="col has-text-dark">
                       <span key={item.id}>${item.price}</span>
                     </div>
-                    {/* <span></span> */}
+             
                   </div>
                   <div className="column border is-flex is-justify-content-space-around">
                     <span></span>
